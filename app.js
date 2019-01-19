@@ -50,11 +50,11 @@ app.use(cors());
 // Body Parser Middleware
 app.use(bodyParser.json());
 
-// // Passport Middleware
-// app.use(passport.initialize());
-// app.use(passport.session());
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 app.use('/users', users);
 
