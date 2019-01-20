@@ -38,18 +38,19 @@ router.post('/register', (req, res, next) => {
 
 // Authenticate
 router.post('/authenticate', (req, res, next) => {
+  console.log('Authenticating...')
   const username = req.body.username;
   const password = req.body.password;
-
   User.getUserByUsername(username, (err, user) => {
     if(err) throw err;
     if(!user) {
       return res.json({success: false, msg: 'User not found'});
     }
-
+    console.log('Comparing Password...')
     User.comparePassword(password, user.password, (err, isMatch) => {
       if(err) throw err;
       if(isMatch) {
+        console.log('Passwords Match: ', password);
         const token = jwt.sign({data: user}, config.secret, {
           expiresIn: 604800 // 1 week
         });
@@ -65,6 +66,8 @@ router.post('/authenticate', (req, res, next) => {
         })
       } else {
         return res.json({success: false, msg: 'Wrong password'});
+        console.log('Passwords Problem: ', password);
+
       }
     });
   });

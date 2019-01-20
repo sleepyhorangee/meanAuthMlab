@@ -4,6 +4,8 @@ import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as alertify from 'alertify.js';
+import {FlashMessagesService} from 'angular2-flash-messages'
+
 declare var $:any;
 
 @Component({
@@ -30,7 +32,8 @@ export class RegisterComponent implements OnInit {
     constructor(
       private formBuilder: FormBuilder,
       private authService: AuthService,
-      private router: Router
+      private router: Router,
+      private flashMessage:FlashMessagesService 
     ) {
       this.createForm(); // Create Angular 2 Form when component loads
     }
@@ -117,7 +120,7 @@ clearForm(){
 
     // Function to submit form
     onRegisterSubmit(userId?: string) {
-
+      console.log('Info submitted ' )
     this.processing = true; // Used to notify HTML that form is in processing, so that it can be disabled
     //this.disableForm(); // Disable the form
     // Create user object form user's inputs
@@ -140,16 +143,7 @@ clearForm(){
         alertify.logPosition('top right').success("User Registered Sucessfully");//example
         this.router.navigate(['/login']);
       }
-    });
-
-
-
-
-
-
-
-
-      
+    });   
   }
 
     // Function to check if e-mail is taken
@@ -161,20 +155,18 @@ clearForm(){
         if (!data['success']) {
           this.emailValid = false; // Return email as invalid
           this.emailMessage = data['message']; // Return error message
-
+          console.log('Email Already Taken!')
         } else {
           this.emailValid = true; // Return email as valid
-          this.emailMessage = data['message']; // Return success message
+          this.emailMessage = data['message'];
+          console.log('Email Available') // Return success message
         }
       });
     }
 
-
-
     ngOnInit() {
       this.emailValid = true;
       this.emailMessage = '';
-
     }
 
     clearMessages(){

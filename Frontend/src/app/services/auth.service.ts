@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,6 @@ export class AuthService {
   authToken: any;
   user: any;
   constructor(private http:HttpClient) { }
-
 
   registerUser(user){
     let headers = new Headers();
@@ -25,14 +23,13 @@ export class AuthService {
 
 
   authenticateUser(user){
-
+    console.log('Auth Service, User: ', user);
     return this.http.post('http://localhost:3000/users/authenticate',  user, {
       headers:new HttpHeaders().append('Content-Type','application/json')
     }).pipe(map(res =>res));
   }
 
   // Forget Password Api Call
-
   forgetPassword(email){
     return this.http.post('http://localhost:3000/users/forgetPassword',{email: email}, {
       headers:new HttpHeaders().append('Content-Type','application/json')
@@ -40,13 +37,11 @@ export class AuthService {
   }
 
   // Reset Password
-
   resetPassword(token, password){
     return this.http.post("http://localhost:3000/users/resetPassword/"+token+"/"+password, {
       headers:new HttpHeaders().append('Content-Type','application/json')
     }).pipe(map(res =>res));
   }
-
 
   getProfile() {
     this.loadToken();
@@ -64,10 +59,7 @@ export class AuthService {
     console.log('Token is  ' + this.authToken);
   }
 
-
-
   loggedIn(){
-
     if (localStorage.getItem('id_token') == undefined ){
      return false;
     } else {
@@ -75,8 +67,6 @@ export class AuthService {
     return !helper.isTokenExpired(localStorage.getItem('id_token')); // other people are putting 'id_token'' here but it didn't work for me so i just put the localStorage item
     }
    }
-
-
 
   storeUserData(token, user){
     localStorage.setItem('id_token', token);
@@ -90,8 +80,6 @@ export class AuthService {
     this.user = null;
     localStorage.clear();
   }
-
-
 
   // Function to check if username is taken
  checkUsername(username) {
@@ -107,16 +95,13 @@ export class AuthService {
    const headers = new HttpHeaders({
      'Content-Type':  'application/json'
    });
-
    return this.http.get('http://localhost:3000/users/checkEmail/' + email, {headers:headers }).pipe(map(res=>res));
  }
-
 
  getUserById(_id) {
   const headers = new HttpHeaders({
     'Content-Type':  'application/json'
   });
-
   return this.http.get('http://localhost:3000/users/getUserById/' + _id, {headers:headers }).pipe(map(res=>res));
 }
 

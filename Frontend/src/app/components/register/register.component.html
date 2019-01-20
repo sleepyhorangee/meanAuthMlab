@@ -7,7 +7,7 @@
   <div class="form-group">
     <label for="username">Username</label>
     <div>
-      <input type="text" name="username" class="form-control" autocomplete="off" placeholder="*Username" formControlName="username"  />
+      <input type="text" style="text-transform: lowercase" name="username" class="form-control" autocomplete="off" placeholder="*Username" formControlName="username"  />
       <!-- Validation -->
       <ul class="help-block">
         <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty" class="text-danger">This field is required</li>

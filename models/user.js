@@ -28,6 +28,7 @@ module.exports.getUserById = function(id, callback) {
 }
 
 module.exports.getUserByUsername = function(username, callback) {
+  console.log('GetUserByUsername called: ', username)
   const query = {username: username}
   User.findOne(query, callback);
 }
@@ -43,8 +44,10 @@ module.exports.addUser = function(newUser, callback) {
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback) {
+  console.log('Comparing password: ', candidatePassword);
   bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
-    if(err) throw err;
+    if(err) {throw err;
+    console.log('Compare Password failed') }
     callback(null, isMatch);
   });
 }
