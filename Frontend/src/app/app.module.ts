@@ -13,6 +13,12 @@ import { DataTablesModule } from 'angular-datatables';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
+
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { DataServiceComponent } from './components/dataservice/dataservice.component';
+import { ApiComponent } from './components/api/api.component';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -33,11 +39,20 @@ const appRoutes: Routes =  [
   {path:'verify/:token', component: VerifyComponent},
   {path:'reset/:token', component: ResetComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]}
-]
+  {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+
+  {path:'about', component: AboutComponent, canActivate:[AuthGuard]},
+  {path:'api', component: ApiComponent, canActivate:[AuthGuard]},
+  {path:'contact', component: ContactComponent, canActivate:[AuthGuard]},
+  {path:'dataservice', component: DataServiceComponent, canActivate:[AuthGuard]}
+] 
 
 @NgModule({
   declarations: [
+    AboutComponent,
+    ApiComponent,
+    ContactComponent,
+    DataServiceComponent,
     AppComponent,
     NavbarComponent,
     LoginComponent,

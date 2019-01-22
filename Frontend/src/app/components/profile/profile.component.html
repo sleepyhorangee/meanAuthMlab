@@ -1,10 +1,10 @@
-<div *ngIf="user">
+<!-- <div *ngIf="user">
     <h2 class="page-header">{{user.name}}</h2>
     <ul class="list-group">
       <li class="list-group-item">Username : {{user.username}}</li>
       <li class="list-group-item">Email : {{user.email}}</li>
     </ul>
-  </div>
+  </div> -->
   <!-- Buttons -->
 <!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-info pull-right" (click)="openModal()">Open Modal</button>
@@ -16,7 +16,13 @@
         <th>Name</th>
         <th>Email</th>
         <th>Action</th>
-
+      </tr>
+    </thead>
+    <thead>
+      <tr>
+        <th>{{user.username}}</th>
+        <th>{{user.email}}</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -27,5 +33,5 @@
       </tr>
     </tbody>
   </table>
-
-<app-register title="{{title}}" ></app-register>
+<!-- 
+<app-register title="{{title}}" ></app-register> -->

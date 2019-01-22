@@ -44,7 +44,7 @@ const users = require('./routes/users');
 app.use(cors());
 
 // // Set Static Folder
-// app.use(express.static(path.join(__dirname, 'public')));
+ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'Frontend/src/app')));
 
 // Body Parser Middleware

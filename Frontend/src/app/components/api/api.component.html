@@ -1,0 +1,12 @@
+<h1>API</h1>
+
+  <ul *ngIf="apiData">
+    <li *ngFor="let api of apiData">
+      <!-- <img [src]="api.avatar"> -->
+      <!-- <p>blah</p> -->
+      <!-- <p># Name     Phone Number</p> -->
+      <p>{{ api.id }}. {{ api.name }} {{ api.phone }}</p>
+      <!-- <p>{{ api.first_name }} {{ api.last_name }}</p> -->
+    </li>
+  </ul>
+
