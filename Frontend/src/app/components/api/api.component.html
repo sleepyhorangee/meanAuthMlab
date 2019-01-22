@@ -1,12 +1,24 @@
+<div @moveCols>
+  <div id="main">
+    <div class="col">
+      <p>Styling different animations </p>
+    </div>
+    <div class="col">
+      <p>Styling different animations</p>
+    </div>
+    <div class="col">
+      <p>Styling different animations</p>
+    </div>
+  </div>
+</div>
+
+
+<div id="container" [@fadeMove]="apiData.length">
 <h1>API</h1>
-
-  <ul *ngIf="apiData">
-    <li *ngFor="let api of apiData">
-      <!-- <img [src]="api.avatar"> -->
-      <!-- <p>blah</p> -->
-      <!-- <p># Name     Phone Number</p> -->
-      <p>{{ api.id }}. {{ api.name }} {{ api.phone }}</p>
-      <!-- <p>{{ api.first_name }} {{ api.last_name }}</p> -->
-    </li>
-  </ul>
-
+  <div id="rowInfo" *ngFor="let api of apiData">
+    {{ api.id }}.   {{ api.name }} {{ api.phone }}
+      <!-- <p id="p">{{ api.id }}. </p>
+       <p id="p"> {{ api.name }} </p>
+       <p id="p"> {{ api.phone }}</p> -->
+    </div>
+</div>

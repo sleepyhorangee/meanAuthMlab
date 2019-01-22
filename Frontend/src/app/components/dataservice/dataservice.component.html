@@ -1,8 +1,16 @@
 <h1>Home</h1>
  
+<div id="container" [@fadeMoveR]="users.data.length">
+  <div id="list" *ngFor="let user of users.data">
+    <img id="pic" [src]="user.avatar">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+  </div>
+</div>
+
+<!-- 
 <ul *ngIf="users">
   <li *ngFor="let user of users.data"> 
     <img [src]="user.avatar">
     <p>{{ user.first_name }} {{ user.last_name }}</p>
   </li>
-</ul>
+</ul> -->

@@ -1,3 +1,18 @@
+#list {
+    justify-content: space-around;
+    background: rgb(238, 238, 238);
+    padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: 80px auto;
+}
+
+#pic {
+    height: 50px;
+    border-radius: 25px;
+}
+
 ul {
     list-style-type: none;
     margin: 0;padding: 0;

@@ -29,7 +29,7 @@ import { UserModelComponent } from './components/user-model/user-model.component
 import { VerifyComponent } from './components/verify/verify.component';
 import { ForgetComponent } from './components/forget/forget.component';
 import { ResetComponent } from './components/reset/reset.component';
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const appRoutes: Routes =  [
   {path:'', component: HomeComponent},
@@ -67,6 +67,7 @@ const appRoutes: Routes =  [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
     ReactiveFormsModule,

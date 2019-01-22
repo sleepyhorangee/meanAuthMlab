@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { fadeMoveR } from 'src/app/animations';
 
 @Component({
   selector: 'app-dataservice',
   templateUrl: './dataservice.component.html',
-  styleUrls: ['./dataservice.component.scss']
+  styleUrls: ['./dataservice.component.scss'],
+  animations: [
+    fadeMoveR
+  ]
 })
 export class DataServiceComponent implements OnInit {
 

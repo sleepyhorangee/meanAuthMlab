@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { fadeMove, moveCols } from 'src/app/animations';
 
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
-  styleUrls: ['./api.component.scss']
+  styleUrls: ['./api.component.scss'],
+  animations: [
+    fadeMove, moveCols
+  ]
 })
 export class ApiComponent implements OnInit {
 

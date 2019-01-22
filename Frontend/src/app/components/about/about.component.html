@@ -1,3 +1,24 @@
-<p>
-  about works!
-</p>
+<div id="container" [@fadeMove]="items.length">
+
+  <button (click)="pushItem()">Add item</button>
+  <button (click)="removeItem()">Remove item</button>
+
+  <div id="list" *ngFor="let item of items">
+    {{ item }}
+  </div>
+
+</div>
+
+<div @moveCols>
+  <div id="main">
+    <div class="col">
+      <p>Styling different animations </p>
+    </div>
+    <div class="col">
+      <p>Styling different animations</p>
+    </div>
+    <div class="col">
+      <p>Styling different animations</p>
+    </div>
+  </div>
+</div>
